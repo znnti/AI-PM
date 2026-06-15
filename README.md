@@ -97,7 +97,7 @@ Current repository path:
 
 ```bash
 python ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
-  --repo znnti/AI-PM \
+  --repo znnti/codex-product-delivery-skill \
   --path skills/product-requirements-prototyper
 ```
 
@@ -154,13 +154,13 @@ Use product-requirements-prototyper to prepare developer handoff materials from 
         └── assets/
 ```
 
-## Recommended Repository Name
+## Repository Naming
 
-The current repository name `AI-PM` is short, but it does not explain the role fast enough for new visitors.
+The repository is now named `codex-product-delivery-skill`, which is much clearer for new visitors because it exposes all three key concepts immediately:
 
-Recommended rename:
-
-- `codex-product-delivery-skill`
+- `Codex`
+- `skill`
+- `product delivery`
 
 Also good:
 
