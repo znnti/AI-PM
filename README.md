@@ -2,7 +2,13 @@
 
 Turn rough product ideas into structured delivery artifacts with one reusable Codex skill.
 
+面向产品经理的 Codex Skill，用来把模糊产品想法推进为可交付的产品文档、原型与开发交付材料。
+
 This repository publishes a **Codex skill for product managers**. It is designed for **end-to-end product delivery work**: from product framing and PRD writing to interaction spec, UI direction, HTML prototype, `Design.md`, `Asset-Spec.md`, and developer handoff.
+
+这是一个面向 **产品经理 / AI PM / 产品交付协作** 的 Codex skill，覆盖 **从产品想法到开发交付** 的整条工作链路：产品定义、PRD、交互说明、UI 方向、HTML 原型、`Design.md`、`Asset-Spec.md` 与开发交付。
+
+> A Codex skill for product managers focused on end-to-end product delivery, from product ideas and PRDs to HTML prototypes, design contracts, asset specs, and developer handoff.
 
 ![Product delivery flow](./assets/readme/product-delivery-flow.svg)
 
@@ -12,6 +18,15 @@ This repository publishes a **Codex skill for product managers**. It is designed
 - Built for **product managers, AI PM workflows, and product delivery collaboration**.
 - Designed to support both **full workflow execution** and **scoped repair work**.
 - Structured so the reusable mechanism stays in the skill while project-specific files stay in project folders.
+
+### Who This Is For | 适合谁用
+
+- Product managers who want Codex to help move from idea to delivery.
+- AI PM or prototyping workflows that need reusable product-delivery structure.
+- Teams that want requirements, prototype, design contracts, and handoff materials to stay aligned.
+- 希望用 Codex 把产品想法系统化推进到交付阶段的产品经理。
+- 需要稳定产出 PRD、交互说明、HTML 原型与开发交付材料的 AI 协作流程。
+- 希望把需求、原型、设计合同、资产合同和交付说明串成一条链路的团队。
 
 ## Why This Skill Exists
 
@@ -23,6 +38,8 @@ Product work often breaks between stages:
 - project work gets repeated because standards live only inside one project
 
 This skill exists to make the product-delivery chain reusable and operational inside Codex.
+
+这个 skill 的目标不是提供一堆静态模板，而是把“产品需求到开发交付”的方法沉淀为一套可复用、可迭代、可被 Codex 实际执行的机制。
 
 ## What It Covers
 
@@ -88,6 +105,16 @@ Typical outputs include:
 - build or repair high-fidelity HTML prototypes for phone, pad, TV, or web
 - strengthen `Design.md` and `Asset-Spec.md` before asset replacement
 - prepare developer handoff after product and prototype work are stable
+
+## About This Repository | 仓库说明
+
+**Description**
+
+`A Codex skill for product managers focused on end-to-end product delivery, from product ideas and PRDs to HTML prototypes, design contracts, asset specs, and developer handoff.`
+
+**Suggested Topics**
+
+`codex`, `codex-skill`, `product-management`, `product-manager`, `product-delivery`, `prd`, `interaction-spec`, `html-prototype`, `design-system`, `developer-handoff`
 
 ## Install
 
@@ -185,3 +212,9 @@ The actual published skill lives here:
 - Keep skill references reusable and project-neutral.
 - Stage Gate is preserved for actual product-delivery work.
 - Skill maintenance should run continuously unless the user explicitly asks for step-by-step confirmation.
+
+## Bilingual README Note | 关于中英双语
+
+This README intentionally mixes English and Chinese in key sections so both Chinese-speaking and international users can understand the role of the repository quickly.
+
+这个 README 有意识地在关键位置采用中英双语，是为了让中文用户和海外用户都能快速看懂这个仓库的定位、作用和安装方式。
