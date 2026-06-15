@@ -106,6 +106,14 @@ Many GitHub skill repos stop at prompts, document templates, or one-off generati
 
 这个 skill 更值得强调的，不只是“能生成文档”，而是它把产品交付过程中最容易断裂的环节做成了可持续执行的机制。
 
+### At a glance
+
+- **End-to-end**: from idea and PRD to prototype, contracts, and developer handoff
+- **Resumable**: long multi-screen work stays on track through a screen-ledger workflow
+- **Contract-driven**: `Design.md` and `Asset-Spec.md` are treated as implementation contracts
+- **Scoped**: can switch between full delivery, one stage, or one exact screen
+- **Codex-native**: designed to be executed by Codex as a repeatable working method, not just copied as a prompt
+
 - **End-to-end product delivery chain**
   It connects product framing, PRD, interaction, UI direction, HTML prototype, `Design.md`, `Asset-Spec.md`, and developer handoff in one reusable workflow.
 - **Mode-based routing instead of one fixed flow**
