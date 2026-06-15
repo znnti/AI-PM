@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Requirements Prototyper"
+  short_description: "Create PRDs and HTML prototypes"
+  default_prompt: "Use this skill to turn my product idea into a complete PRD, interaction document, UI concept prompts, and HTML prototypes for phone, pad, TV, and web handoff."

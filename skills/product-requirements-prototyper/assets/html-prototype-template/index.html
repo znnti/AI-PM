@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Prototype</title>
+  <style>
+    :root { --bg:#f4f4f2; --text:#050505; --muted:#858580; --line:#deded9; --accent:#e5bd19; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", Arial, sans-serif; background: var(--bg); color: var(--text); }
+    .app { min-height: 100vh; padding: 32px; }
+    .device-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+    .device-tabs button { border: 1px solid var(--text); background: transparent; padding: 10px 14px; font-weight: 800; cursor: pointer; }
+    .device-tabs button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+    .screen { border-top: 1px solid var(--line); padding-top: 24px; }
+    .kicker { color: var(--accent); font-weight: 900; letter-spacing: .1em; }
+    h1 { font-size: clamp(40px, 7vw, 88px); line-height: 1.08; margin: 24px 0; }
+    .muted { color: var(--muted); line-height: 1.7; max-width: 720px; }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <nav class="device-tabs" aria-label="Device preview">
+      <button aria-pressed="true">Phone</button>
+      <button>Pad</button>
+      <button>TV</button>
+      <button>Web</button>
+    </nav>
+    <section class="screen">
+      <div class="kicker">PROTOTYPE</div>
+      <h1>Replace with the actual product experience</h1>
+      <p class="muted">Use this starter only as a structural base. Build real flows, realistic data, and device-specific layouts before delivery.</p>
+    </section>
+  </main>
+</body>
+</html>
