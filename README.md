@@ -1,16 +1,28 @@
 # Codex Skill for Product Managers
 
-Turn rough product ideas into structured delivery artifacts with one reusable Codex skill.
+Turn rough product ideas into PRDs, prototype contracts, HTML prototypes, and developer-ready delivery assets with one reusable Codex skill.
 
-面向产品经理的 Codex Skill，用来把模糊产品想法推进为可交付的产品文档、原型与开发交付材料。
+面向产品经理的 Codex Skill，用来把模糊产品想法推进为 PRD、原型合同、HTML 原型与开发交付材料。
 
-This repository publishes a **Codex skill for product managers**. It is designed for **end-to-end product delivery work**: from product framing and PRD writing to interaction spec, UI direction, HTML prototype, `Design.md`, `Asset-Spec.md`, and developer handoff.
+This repository publishes a **Codex skill for product managers** built for **end-to-end product delivery**: from product framing and PRD writing to interaction spec, UI direction, HTML prototype, `Design.md`, `Asset-Spec.md`, and developer handoff.
 
-这是一个面向 **产品经理 / AI PM / 产品交付协作** 的 Codex skill，覆盖 **从产品想法到开发交付** 的整条工作链路：产品定义、PRD、交互说明、UI 方向、HTML 原型、`Design.md`、`Asset-Spec.md` 与开发交付。
+这是一个面向 **产品经理 / AI PM / 产品交付协作** 的 Codex skill，覆盖 **从产品想法到开发交付** 的整条链路：产品定义、PRD、交互说明、UI 方向、HTML 原型、`Design.md`、`Asset-Spec.md` 与开发交付。
 
 > A Codex skill for product managers focused on end-to-end product delivery, from product ideas and PRDs to HTML prototypes, design contracts, asset specs, and developer handoff.
 
 ![Product delivery flow](./assets/readme/product-delivery-flow.svg)
+
+## When To Use This Skill | 什么时候该用
+
+Use this skill when you want Codex to help with product delivery work such as:
+
+- turning an idea into a usable PRD and interaction spec
+- converting visual direction into measurable prototype rules
+- building or repairing high-fidelity product HTML
+- managing multi-screen prototype work without losing scope
+- preparing cleaner developer handoff from product artifacts
+
+如果你希望 Codex 不只是“写一份文档”，而是把需求、原型、规范和交付串起来推进，这个 skill 就是适合的。
 
 ## What This Repository Is
 
@@ -102,11 +114,11 @@ Typical outputs include:
 
 ## Why This Skill Stands Out
 
-Many GitHub skill repos stop at prompts, document templates, or one-off generation flows. This skill is stronger when the work becomes long, visual, iterative, and handoff-sensitive.
+Many GitHub skill repos stop at prompts, document templates, or one-off generation flows. This skill is designed for work that is long, visual, iterative, and handoff-sensitive.
 
 这个 skill 更值得强调的，不只是“能生成文档”，而是它把产品交付过程中最容易断裂的环节做成了可持续执行的机制。
 
-### At a glance
+### At A Glance
 
 - **End-to-end**: from idea and PRD to prototype, contracts, and developer handoff
 - **Resumable**: long multi-screen work stays on track through a screen-ledger workflow
@@ -114,18 +126,13 @@ Many GitHub skill repos stop at prompts, document templates, or one-off generati
 - **Scoped**: can switch between full delivery, one stage, or one exact screen
 - **Codex-native**: designed to be executed by Codex as a repeatable working method, not just copied as a prompt
 
-- **End-to-end product delivery chain**
-  It connects product framing, PRD, interaction, UI direction, HTML prototype, `Design.md`, `Asset-Spec.md`, and developer handoff in one reusable workflow.
-- **Mode-based routing instead of one fixed flow**
-  It can switch between full delivery, stage-only work, one-screen refinement, and skill maintenance without forcing the whole process every time.
-- **Resumable delivery control**
-  It uses a lightweight global scan plus a screen-ledger workflow, so multi-screen prototype work does not lose untouched pages when long conversations fold or requirements change midstream.
-- **Contract-driven high-fidelity work**
-  It treats `Design.md` and `Asset-Spec.md` as implementation contracts, not accessory notes, which makes later HTML repair and asset replacement far more stable.
-- **Safer page-by-page execution**
-  High-fidelity HTML and asset-fill tasks default to one-page execution, but still stay connected to a global page inventory so the project does not get stuck on the most recently discussed screen.
-- **Real separation between product delivery and skill maintenance**
-  Product work keeps Stage Gate confirmation, while skill maintenance can run continuously without unnecessary pauses.
+### Core strengths
+
+- **End-to-end product delivery chain**: connects product framing, PRD, interaction, UI direction, HTML prototype, `Design.md`, `Asset-Spec.md`, and developer handoff in one reusable workflow.
+- **Mode-based routing**: can switch between full delivery, stage-only work, one-screen refinement, and skill maintenance without forcing the whole process every time.
+- **Resumable delivery control**: uses a lightweight global scan plus a screen-ledger workflow, so multi-screen prototype work does not lose untouched pages when long conversations fold or requirements change midstream.
+- **Contract-driven high-fidelity work**: treats `Design.md` and `Asset-Spec.md` as implementation contracts, not accessory notes, which makes later HTML repair and asset replacement far more stable.
+- **Real separation between product delivery and skill maintenance**: product work keeps Stage Gate confirmation, while skill maintenance can run continuously without unnecessary pauses.
 
 If you want one sentence to describe the core difference, it is this:
 
