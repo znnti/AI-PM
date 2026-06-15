@@ -124,7 +124,7 @@ Current repository path:
 
 ```bash
 python ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
-  --repo znnti/codex-product-delivery-skill \
+  --repo YinHeBuilder/codex-product-delivery-skill \
   --path skills/product-requirements-prototyper
 ```
 
