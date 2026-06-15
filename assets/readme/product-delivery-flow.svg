@@ -1,0 +1,38 @@
+<svg width="1280" height="320" viewBox="0 0 1280 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="320" rx="24" fill="#F5F2E9"/>
+  <text x="64" y="68" fill="#111111" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">From idea to developer handoff</text>
+  <text x="64" y="102" fill="#686252" font-family="Arial, Helvetica, sans-serif" font-size="18">A Codex skill workflow for product managers and AI-assisted product delivery.</text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+    <rect x="64" y="158" width="124" height="72" rx="16" fill="#FFF9ED" stroke="#C89E2B" stroke-width="2"/>
+    <text x="126" y="201" fill="#111111">Idea</text>
+
+    <rect x="214" y="158" width="124" height="72" rx="16" fill="#FFFFFF" stroke="#D8D2C2" stroke-width="2"/>
+    <text x="276" y="201" fill="#111111">PRD</text>
+
+    <rect x="364" y="158" width="168" height="72" rx="16" fill="#FFFFFF" stroke="#D8D2C2" stroke-width="2"/>
+    <text x="448" y="201" fill="#111111">Interaction Spec</text>
+
+    <rect x="558" y="158" width="154" height="72" rx="16" fill="#FFFFFF" stroke="#D8D2C2" stroke-width="2"/>
+    <text x="635" y="201" fill="#111111">UI Concept</text>
+
+    <rect x="738" y="158" width="164" height="72" rx="16" fill="#FFFFFF" stroke="#D8D2C2" stroke-width="2"/>
+    <text x="820" y="201" fill="#111111">HTML Prototype</text>
+
+    <rect x="928" y="158" width="124" height="72" rx="16" fill="#EEF6FF" stroke="#5C94D6" stroke-width="2"/>
+    <text x="990" y="189" fill="#111111">Design.md</text>
+    <text x="990" y="211" fill="#111111">Asset-Spec</text>
+
+    <rect x="1078" y="158" width="138" height="72" rx="16" fill="#EAF6EF" stroke="#4D9A66" stroke-width="2"/>
+    <text x="1147" y="201" fill="#111111">Handoff</text>
+  </g>
+
+  <g stroke="#8A836F" stroke-width="2">
+    <path d="M188 194H214"/>
+    <path d="M338 194H364"/>
+    <path d="M532 194H558"/>
+    <path d="M712 194H738"/>
+    <path d="M902 194H928"/>
+    <path d="M1052 194H1078"/>
+  </g>
+</svg>
