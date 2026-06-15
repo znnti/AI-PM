@@ -238,6 +238,84 @@ This rule exists because product work spans multiple turns. Do not assume earlie
 
 For screen-local refinement, shrink the checklist to the local scope. Example: one page, one module, one icon family, one button family, or one asset batch. Do not expand a local repair into a full project audit unless the user asks or a discovered dependency makes it necessary.
 
+For high-fidelity HTML skeleton work and placeholder-to-asset replacement, treat "one screen/page at a time" as the default safe operating mode:
+
+- Start with a lightweight global scan before the first deep page pass. Identify the in-scope pages, routes, modules, key states, and known contract gaps without fully loading every page implementation.
+- Build or repair one screen, route, or device page first.
+- Update the local `Design.md` and `Asset-Spec.md` coverage for that page in the same pass.
+- Summarize page completion before moving to the next page.
+- Only batch multiple pages continuously when the user explicitly says to do so, or when a resumable page checklist has already been created and the user approved automatic progression.
+
+If the project is large and the user wants less manual intervention, use a resumable automation pattern instead of one giant pass:
+
+- create a screen inventory
+- keep the inventory lightweight; do not fully re-read every page on every turn
+- mark each screen with status such as `pending`, `in_progress`, `skeleton_done`, `asset_ready`, `asset_filled`, `verified`
+- process pages sequentially against that ledger
+- re-read the current page contract files before each page pass
+- after finishing one page, return to the ledger and choose the next page intentionally instead of relying on conversational memory
+
+This keeps long conversations from losing requirements when context compresses or folds.
+
+Recommended ledger fields:
+
+- `screen`
+- `route_or_anchor`
+- `device`
+- `status`
+- `depends_on`
+- `design_contract_status`
+- `asset_spec_status`
+- `open_questions`
+- `next_action`
+
+The ledger is the project-memory layer. The single-page pass is only the execution layer.
+
+### Standard Screen Ledger Template
+
+When multi-screen HTML or asset work spans multiple turns, create or update a `Screen-Ledger.md` or an equivalent section in project notes before the first deep page pass.
+
+Use this fixed header order:
+
+```md
+| Screen | Route / Anchor | Device | Scope | Status | Depends On | Design Contract | Asset Spec | Open Questions | Next Action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Home | `index.html#home` | iPad | skeleton + assets | scanned | PRD, Interaction, home modules | partial | pending | hero icon style not final | build skeleton first |
+```
+
+Use these status values only:
+
+- `pending`: in scope but not scanned yet
+- `scanned`: globally identified, waiting for deep work
+- `in_progress`: current active page
+- `blocked`: cannot continue until a dependency or decision is resolved
+- `skeleton_done`: HTML skeleton and placeholder layout are stable
+- `asset_ready`: page layout is stable and asset contracts are ready
+- `asset_filled`: assets were replaced for the current scope
+- `verified`: page passed the current audit and can move forward
+- `out_of_scope`: intentionally excluded from the current request
+
+Field meaning:
+
+- `Screen`: stable page or module name
+- `Route / Anchor`: exact file path, route, or HTML anchor
+- `Device`: phone, pad, TV, web, or mixed
+- `Scope`: what this pass covers for the page, such as skeleton, repair, assets, or verification
+- `Status`: use the fixed status set above
+- `Depends On`: upstream docs, states, or sibling pages that affect this page
+- `Design Contract`: `missing`, `partial`, `ready`, or `verified`
+- `Asset Spec`: `missing`, `partial`, `ready`, or `verified`
+- `Open Questions`: unresolved requirements, visual decisions, or state gaps
+- `Next Action`: the next concrete move, not a generic note
+
+Usage rules:
+
+- Keep one row per screen or local route in the current task scope.
+- During the first scan, fill only enough detail to preserve continuity; do not deep-analyze every page yet.
+- Before each page pass, set the current row to `in_progress`.
+- After each page pass, update `Status`, `Design Contract`, `Asset Spec`, `Open Questions`, and `Next Action`.
+- Never rely on conversation memory alone for deciding the next page.
+
 
 ## Invocation Logging
 

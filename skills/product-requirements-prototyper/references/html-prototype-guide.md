@@ -59,6 +59,10 @@ Useful visual QA habits that were previously practiced in presentation-style wor
 
 Use this workflow when the user expects the HTML prototype to closely match approved UI effect images.
 
+Default delivery unit: one screen/page per pass. Unless the user explicitly requests multi-screen batching or full auto mode, do not build every page in a prototype at once. Finish one screen, verify one screen, and summarize one screen before advancing.
+
+This does not mean "ignore the remaining pages." Before the first deep implementation pass, do a lightweight global scan and create a screen ledger or page queue so the remaining pages stay visible throughout the task.
+
 1. **Run a preflight check before coding.** Confirm the scope, target viewport, approved reference images, and whether the task is skeleton build, high-fidelity repair, or asset-fill. For high-fidelity work, verify that `Design.md` already contains or will immediately contain layout rules, component rules, and button standards, and that `Asset-Spec.md` can cover every visible slot. If those contracts are missing, create or strengthen them before calling the HTML "done."
 2. **Lock the canvas first.** Set the target device viewport explicitly, such as a fixed phone portrait, tablet landscape, TV, or web dashboard mock. Do not let ordinary responsive web behavior change the design during the first fidelity pass.
 3. **Measure the approved effect image into layout tokens.** Record page padding, top status height, section widths, grid columns, card heights, row gaps, border radius, major font sizes, repeated component sizes, and button equations before coding.
@@ -101,6 +105,47 @@ Keep the local repair checklist narrow:
 - target asset slots
 - target navigation or return behavior
 - directly adjacent dependent rules only
+
+For new high-fidelity skeleton builds where the user did not name one page but the product contains multiple screens, create a page queue first and still execute page by page:
+
+- identify the in-scope pages
+- record them in a screen ledger with status and dependencies
+- choose the first page explicitly
+- complete skeleton, placeholder, and local contract sync for that page
+- update the ledger after the page pass
+- summarize what is now stable before opening the next page
+
+Do not keep two or three partially stabilized pages open in one pass unless the user explicitly accepts that risk.
+
+Keep the first scan lightweight for token efficiency:
+
+- read routing structure, page names, anchors, and obvious module boundaries first
+- avoid deep visual comparison for every page during the scan
+- deep-read only the current page being implemented plus directly adjacent dependencies
+
+The scan creates continuity; the page pass creates fidelity.
+
+Use this fixed ledger template for multi-screen work:
+
+```md
+| Screen | Route / Anchor | Device | Scope | Status | Depends On | Design Contract | Asset Spec | Open Questions | Next Action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Home | `index.html#home` | iPad | skeleton + assets | scanned | PRD, Interaction, home modules | partial | pending | hero icon style not final | build skeleton first |
+```
+
+Use these status values only:
+
+- `pending`
+- `scanned`
+- `in_progress`
+- `blocked`
+- `skeleton_done`
+- `asset_ready`
+- `asset_filled`
+- `verified`
+- `out_of_scope`
+
+Keep the ledger lightweight during the first scan. Deep details belong to the current page pass, not to every row up front.
 
 ## Button And Control Discipline
 

@@ -95,8 +95,33 @@ Typical outputs include:
 
 - It routes requests by **work mode**, not by one static document template.
 - It distinguishes **full delivery** from **one-screen repair**.
+- It defaults high-fidelity HTML and asset-fill work to **page-by-page execution**, which is safer for long conversations.
+- It supports a **screen-ledger workflow**: scan globally, then implement page by page without losing the rest of the project.
 - It treats `Design.md` and `Asset-Spec.md` as **implementation contracts**, not optional notes.
 - It keeps stage-gate confirmation for real product-delivery work while allowing continuous execution for skill maintenance.
+
+## Why This Skill Stands Out
+
+Many GitHub skill repos stop at prompts, document templates, or one-off generation flows. This skill is stronger when the work becomes long, visual, iterative, and handoff-sensitive.
+
+这个 skill 更值得强调的，不只是“能生成文档”，而是它把产品交付过程中最容易断裂的环节做成了可持续执行的机制。
+
+- **End-to-end product delivery chain**
+  It connects product framing, PRD, interaction, UI direction, HTML prototype, `Design.md`, `Asset-Spec.md`, and developer handoff in one reusable workflow.
+- **Mode-based routing instead of one fixed flow**
+  It can switch between full delivery, stage-only work, one-screen refinement, and skill maintenance without forcing the whole process every time.
+- **Resumable delivery control**
+  It uses a lightweight global scan plus a screen-ledger workflow, so multi-screen prototype work does not lose untouched pages when long conversations fold or requirements change midstream.
+- **Contract-driven high-fidelity work**
+  It treats `Design.md` and `Asset-Spec.md` as implementation contracts, not accessory notes, which makes later HTML repair and asset replacement far more stable.
+- **Safer page-by-page execution**
+  High-fidelity HTML and asset-fill tasks default to one-page execution, but still stay connected to a global page inventory so the project does not get stuck on the most recently discussed screen.
+- **Real separation between product delivery and skill maintenance**
+  Product work keeps Stage Gate confirmation, while skill maintenance can run continuously without unnecessary pauses.
+
+If you want one sentence to describe the core difference, it is this:
+
+> This is not only a product-document skill. It is a resumable product-delivery operating system for Codex.
 
 ## Best-Fit Use Cases
 

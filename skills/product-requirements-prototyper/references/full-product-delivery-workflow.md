@@ -149,6 +149,29 @@ For one-screen HTML repair, scope the audit to that screen only. Do not automati
 
 Asset generation/replacement is usually part of Stage 6 unless the user treats it as a separate implementation task. It still requires a Stage Gate summary when complete.
 
+For multi-screen prototypes, Stage 4 HTML work and Stage 6 asset work should normally advance page by page. Use one completed screen as the working unit unless the user explicitly approves multi-screen batching or full auto progression with a resumable checklist.
+
+Before the first page pass, create a lightweight screen ledger for the in-scope prototype so later pages do not disappear from working memory after one page triggers new requirements or issues.
+
+Recommended fixed screen-ledger template:
+
+```md
+| Screen | Route / Anchor | Device | Scope | Status | Depends On | Design Contract | Asset Spec | Open Questions | Next Action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+```
+
+Recommended status set:
+
+- `pending`
+- `scanned`
+- `in_progress`
+- `blocked`
+- `skeleton_done`
+- `asset_ready`
+- `asset_filled`
+- `verified`
+- `out_of_scope`
+
 ### Stage 7. Developer Handoff / 开发交付
 
 - Include PRD, interaction spec, HTML prototype, asset spec, known assumptions, and implementation notes.
@@ -176,6 +199,8 @@ Before delivery, verify:
 
 - The first screen is the product experience, not a landing page.
 - The requested scope has a matching coverage checklist, and the final files cover every checklist item or explicitly mark exclusions.
+- High-fidelity HTML and asset-fill work did not skip past the page boundary silently; if multiple screens were involved, each page has its own completion state or summary.
+- A screen ledger or equivalent page queue exists when multi-screen work spans multiple turns.
 - Layout matches the approved effect image by measured grid, not by vague similarity.
 - No placeholder spills outside its parent.
 - All text fits and aligns with neighboring elements.
