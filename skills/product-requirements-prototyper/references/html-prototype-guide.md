@@ -196,3 +196,5 @@ Before closing a high-fidelity HTML task, explicitly verify:
 - every visible asset slot is represented in `Asset-Spec.md`
 - asset placeholders or final assets preserve the surrounding layout
 - the final HTML can be explained by `Design.md` and `Asset-Spec.md`, not by one-off CSS accidents
+
+For multi-page product work, run this audit per page, not only at the very end of the whole prototype.

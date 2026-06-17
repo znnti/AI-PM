@@ -1,6 +1,6 @@
 ---
 name: product-requirements-prototyper
-description: Turn product ideas, feature requests, or rough product requirements into complete product deliverables. Use when Codex needs to help a product manager produce PRDs, product requirement documents, interaction specs, user flows, information architecture, UI concept directions, image-generation prompts for representative screens, multi-device HTML prototypes for phone, pad, TV, or web scenarios, and developer handoff materials for Vibo coding or implementation teams.
+description: Turn product ideas, feature requests, rough requirements, or existing product artifacts into scoped product deliverables. Use when Codex needs to create or repair PRDs, interaction specs, user flows, information architecture, UI concept directions, image-generation prompts, multi-device HTML prototypes for phone, pad, TV, or web, Design.md and Asset-Spec.md contracts, screen-local product UI, or developer handoff materials for Vibo coding and implementation teams.
 ---
 
 # Product Requirements Prototyper
@@ -33,9 +33,13 @@ Mode selection controls how much context may be loaded:
 
 ## Stage Gate Workflow
 
-Use staged delivery with a mandatory Stage Gate after every completed product-delivery stage. The user may begin from any stage. Do not generate the entire product package blindly unless the user explicitly authorizes automatic progression.
+Use Stage Gate to control transitions between product-delivery stages. The user may begin from any stage. Do not generate the entire product package blindly unless the user explicitly authorizes automatic progression.
 
-Stage Gate applies only when using this skill to produce or repair product deliverables for a user's product project: PRD, interaction spec, UI concept, HTML prototype, Design.md, Asset-Spec.md, asset generation/replacement, or developer handoff.
+Stage Gate applies when a completed product-delivery stage would advance into a different stage: PRD, interaction spec, UI concept, HTML prototype, Design.md, Asset-Spec.md, asset generation/replacement, or developer handoff.
+
+Do not emit a Stage Gate after every screen-local correction, feedback turn, or continuation inside the same requested stage. Continue within the named screen/module and summarize normally. Emit a gate only when the current stage is complete and another stage is proposed, when moving to another screen requires user scope approval, or when the user explicitly asks for phased confirmation.
+
+For high-fidelity HTML and asset work, Stage Gate alone is not enough. Default execution unit must also shrink to one page, one screen, or one local route at a time unless the user explicitly asks for multi-screen batching or full auto mode. Do not silently code or fill every screen in a long prototype in one pass just because the project contains multiple pages.
 
 Stage Gate does not apply when the user is maintaining this skill itself. If the request is to maintain, modify, refactor, repair, or tune `product-requirements-prototyper` rules, `SKILL.md`, references, skill metadata, or skill guidance, treat it as a skill-maintenance task:
 
@@ -63,6 +67,7 @@ At the start of each request, determine the current stage from the user's wordin
 
 - If the user asks to maintain, modify, refactor, repair, or tune this skill, `SKILL.md`, references, Stage Gate rules, reference loading rules, or skill guidance, classify the request as **skill maintenance**, not product delivery. In skill maintenance mode, skip Stage 0-7 routing and complete the requested skill edits without Stage Gate pauses unless the user explicitly asks for staged confirmation.
 - If the user asks to repair one named screen, route, anchor, device page, or module such as `#home`, `#detail`, `#player`, `phone.html`, one card family, one icon group, or one button group, classify the request as **screen-local refinement** first. In this mode, do not auto-load the whole product workflow. Read only the exact screen HTML, the relevant contract files, and the relevant asset rows.
+- If the user asks for high-fidelity HTML skeleton build or asset fill without clearly limiting the scope, default to **page-by-page execution**: finish one named screen, route, or device page first, summarize it, then ask whether to continue with the next page unless the user already approved automatic multi-page progression.
 
 - If the user asks for requirements, product scope, acceptance criteria, or PRD repair, route to Stage 1.
 - If the user asks for flows, states, paths, edge cases, screen behavior, or interaction repair, route to Stage 2.
@@ -78,7 +83,9 @@ Support starting from any stage. For example, if the user says "根据这个 PRD
 
 ### Stage Gate Rule
 
-After completing any product-delivery stage, output a Stage Gate summary and pause. Do not automatically enter the next product-delivery stage unless the user clearly says one of: "继续下一步", "直接推进完整流程", "不要每步确认", "不用每一步问我", "中间不用确认", or "全部自动完成".
+After completing a product-delivery stage, output a Stage Gate summary only when proposing a transition into another stage. Do not automatically enter the next product-delivery stage unless the user clearly says one of: "继续下一步", "直接推进完整流程", "不要每步确认", "不用每一步问我", "中间不用确认", or "全部自动完成".
+
+For a stage-specific request, finish the requested stage and stop without asking to enter another stage unless a next-stage recommendation is materially useful. For screen-local refinement, continue same-screen feedback without gates; use one completion summary when the screen reaches a stable or verified state.
 
 Do not use this Stage Gate template for skill-maintenance tasks. For skill maintenance, make the requested `SKILL.md` and reference edits continuously and provide one final summary.
 
@@ -151,6 +158,7 @@ Load only the references needed for the current stage. If the user backtracks, l
 - Stage 5: `references/design-system-guide.md`.
 - Stage 6: `references/asset-spec-guide.md`.
 - Stage 7: `references/vibo-coding-handoff.md`.
+- Cross-document repair or handoff audit: `references/change-impact-guide.md`.
 
 For full auto mode, load each stage's reference just before executing that stage.
 
@@ -166,6 +174,7 @@ Use this matrix to reduce overhead. Do not exceed it unless the current task is 
 - **Design repair**: `references/design-system-guide.md` + current `Design.md` + exact screen HTML + page-level contracts.
 - **Asset repair**: `references/asset-spec-guide.md` + current `Asset-Spec.md` + exact screen HTML + only the relevant asset group.
 - **Developer handoff**: `references/vibo-coding-handoff.md` + the actual files being handed off.
+- **Cross-document change**: `references/change-impact-guide.md` + only the files selected by its impact matrix.
 - **Skill maintenance**: only the skill files being edited.
 
 If the project already has page-level contract files such as `Button-Contract.md`, `Card-Contract.md`, `Icon-Control-Contract.md`, `Typography-Contract.md`, `Surface-Shadow-Contract.md`, or `Player-Contract.md`, prefer those over re-reading broad project documents during screen-local refinement.
@@ -227,6 +236,7 @@ During execution:
 
 - Work from the checklist, not from the most visually prominent or most recently discussed item.
 - If the user changes scope midstream, run a compensation pass over adjacent requirements, interactions, layout, assets, and docs.
+- Use `references/change-impact-guide.md` to select which project contracts must change; do not update every document reflexively.
 
 Before final response:
 
@@ -317,31 +327,9 @@ Usage rules:
 - Never rely on conversation memory alone for deciding the next page.
 
 
-## Invocation Logging
+## Invocation Observability
 
-After each major checkpoint or deliverable, append one JSONL record to `~/.codex/skill-logs/skill_invocations.jsonl` so the local skill observer can show recent activity. Log these actions when applicable:
-
-- `product_framing_checkpoint`
-- `generate_prd_interaction_spec`
-- `ui_style_checkpoint`
-- `page_ui_effect_checkpoint`
-- `html_prototype_build`
-- `developer_handoff`
-- `asset_spec_create`
-- `asset_generation`
-- `html_skeleton_placeholder`
-- `html_asset_slot_annotation`
-- `design_system_create`
-
-Use this record shape:
-
-```json
-{"timestamp_utc":"ISO-8601 UTC timestamp","skill":"product-requirements-prototyper","action":"generate_prd_interaction_spec","project":"project name","output":"main files or folder","status":"success","note":"short summary","cwd":"working directory"}
-```
-
-Use `status: "running"` when a major stage starts and `status: "success"`, `"partial"`, or `"failed"` when it finishes. If updating an earlier JSONL row is impractical, append a new completion row with the same action and project.
-
-If the environment cannot write the log, continue the product work and mention the logging failure in the final response.
+Treat invocation telemetry as a host/runtime responsibility. Do not manually append invocation logs from the product workflow unless the user explicitly asks for project-specific telemetry. Monitoring failure must never block or alter product delivery.
 
 ## Output Package Structure
 
@@ -354,7 +342,7 @@ product-name/
 ├── UI-Concept-Prompts.md
 ├── Design.md
 ├── Asset-Spec.md
-├── Vibo-Coding-Handoff.md
+├── Docs-Handoff.md
 └── prototype/
     ├── index.html
     ├── phone.html
@@ -364,6 +352,8 @@ product-name/
 ```
 
 If the user wants a single file, create `index.html` with device tabs or viewport frames instead of separate HTML files.
+
+Use one canonical handoff entry file. Prefer `Docs-Handoff.md`; link any Vibo-specific implementation prompt from it instead of creating competing handoff entry points.
 
 ## Device Prototype Guidance
 
@@ -382,3 +372,4 @@ If the user wants a single file, create `index.html` with device tabs or viewpor
 - Read `references/html-prototype-guide.md` before coding multi-device HTML prototypes.
 - Read `references/asset-spec-guide.md` when creating asset placeholder inventories, image-generation prompts, or fill-image production plans.
 - Read `references/vibo-coding-handoff.md` before preparing implementation handoff notes.
+- Read `references/change-impact-guide.md` when an HTML or product change may require synchronized updates across requirements, interaction, design, assets, contracts, or handoff files.

@@ -65,6 +65,8 @@ ID | Screen | Location | Component/Region | Purpose | Size/Ratio | Target Format
 
 Before generating or replacing assets, restate the asset scope: one slot, one module, one screen, one format group, or the full visible page.
 
+Default scope for long product conversations should be one screen/page at a time. Do not fill assets across every page in a prototype by default, even if multiple pages already exist. Multi-page asset replacement is allowed only when the user explicitly asks for it or when a resumable page ledger is already in place.
+
 Before finishing, audit that:
 
 - every in-scope HTML placeholder or planned slot has an `Asset-Spec.md` row
@@ -100,6 +102,7 @@ Use stable prefixes so the HTML, asset spec, and final files stay aligned:
 - Keep prompts short enough to be actionable but specific enough to preserve product context and visual style.
 - Group assets by screen first, then by visual hierarchy.
 - If the requested scope is "fill assets for this screen", inventory every visible slot on that screen, including small button icons, row-end action icons, state badges, and empty-state illustrations. Do not stop at the largest hero or cover art.
+- After one screen's asset fill is complete, summarize covered slots before moving to the next screen. Treat each page as a separately auditable unit.
 
 ## File Naming
 

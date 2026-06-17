@@ -19,6 +19,14 @@ Before finishing, audit that the handoff package references:
 - known limitations, open decisions, and production replacement needs
 - implementation priorities and QA focus
 
+Create one canonical `Docs-Handoff.md` entry point. Classify every project document as:
+
+- **Must read**: required before implementation
+- **Read when needed**: component or screen-specific contracts
+- **Archive / do not deliver**: obsolete, duplicated, or process-only material
+
+Do not keep competing active copies of `Design.md`, `Asset-Spec.md`, or the handoff entry. If device-specific variants are necessary, name and link them explicitly from `Docs-Handoff.md`.
+
 Do not hand off only the HTML if behavior, assets, or requirements are still documented elsewhere.
 
 ## Handoff Checklist
@@ -35,6 +43,10 @@ Do not hand off only the HTML if behavior, assets, or requirements are still doc
 - Prototype file map
 - Known limitations of the prototype
 - Implementation priorities
+- Canonical file paths and archived duplicates
+- Prototype-only mock data, emoji, simulated APIs, and unfinished production integrations
+
+Run `scripts/audit_delivery.py <project-root>` before final handoff. Resolve errors and explain any remaining warnings.
 
 ## Engineering Notes
 
@@ -42,6 +54,13 @@ Separate what is fixed from what is illustrative:
 
 - Fixed: requirements, flows, states, validation, data dependencies, permissions.
 - Flexible: visual polish, exact copy, animation timing, local mock data.
+
+Treat prototype size as two separate concerns:
+
+- **Browser runtime**: HTML line count alone is rarely the main performance cost; assets, rendering, and event behavior matter more.
+- **AI/engineering context**: a monolithic prototype increases token use, edit conflicts, and regression risk.
+
+Do not refactor a stable handoff prototype only to reduce line count. Instead, provide a production decomposition map by screen, component, state, and service when the implementation team will rebuild it in a framework.
 
 ## AI Coding Prompt Pattern
 

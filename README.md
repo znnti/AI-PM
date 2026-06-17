@@ -101,7 +101,7 @@ Typical outputs include:
 - `Design.md`
 - `Asset-Spec.md`
 - `HTML prototypes`
-- `Developer handoff notes`
+- `Docs-Handoff.md` and developer handoff notes
 
 ## Why It Is Different From A Template Repo
 
@@ -110,7 +110,8 @@ Typical outputs include:
 - It defaults high-fidelity HTML and asset-fill work to **page-by-page execution**, which is safer for long conversations.
 - It supports a **screen-ledger workflow**: scan globally, then implement page by page without losing the rest of the project.
 - It treats `Design.md` and `Asset-Spec.md` as **implementation contracts**, not optional notes.
-- It keeps stage-gate confirmation for real product-delivery work while allowing continuous execution for skill maintenance.
+- It uses Stage Gate for cross-stage transitions while allowing continuous same-screen refinement and skill maintenance.
+- It includes a delivery auditor for duplicate IDs, broken local assets, canonical documents, and handoff entry checks.
 
 ## Why This Skill Stands Out
 
@@ -132,7 +133,8 @@ Many GitHub skill repos stop at prompts, document templates, or one-off generati
 - **Mode-based routing**: can switch between full delivery, stage-only work, one-screen refinement, and skill maintenance without forcing the whole process every time.
 - **Resumable delivery control**: uses a lightweight global scan plus a screen-ledger workflow, so multi-screen prototype work does not lose untouched pages when long conversations fold or requirements change midstream.
 - **Contract-driven high-fidelity work**: treats `Design.md` and `Asset-Spec.md` as implementation contracts, not accessory notes, which makes later HTML repair and asset replacement far more stable.
-- **Real separation between product delivery and skill maintenance**: product work keeps Stage Gate confirmation, while skill maintenance can run continuously without unnecessary pauses.
+- **Scoped Stage Gate behavior**: cross-stage product transitions pause for confirmation, while same-screen feedback and skill maintenance continue without unnecessary gates.
+- **Executable handoff audit**: `audit_delivery.py` checks canonical documents, handoff entry points, duplicate HTML IDs, and broken local references before delivery.
 
 If you want one sentence to describe the core difference, it is this:
 
@@ -218,6 +220,9 @@ Use product-requirements-prototyper to prepare developer handoff materials from 
         ├── agents/
         │   └── openai.yaml
         ├── references/
+        │   └── change-impact-guide.md
+        ├── scripts/
+        │   └── audit_delivery.py
         └── assets/
 ```
 
@@ -250,7 +255,7 @@ The actual published skill lives here:
 
 - Keep project-specific decisions in project files, not in the skill.
 - Keep skill references reusable and project-neutral.
-- Stage Gate is preserved for actual product-delivery work.
+- Stage Gate is used when moving between product-delivery stages, not after every local refinement.
 - Skill maintenance should run continuously unless the user explicitly asks for step-by-step confirmation.
 
 ## Bilingual README Note | 关于中英双语

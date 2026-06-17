@@ -210,22 +210,8 @@ Before delivery, verify:
 - `Asset-Spec.md` covers every visible placeholder.
 - `Design.md` contains button standards and the HTML actually follows them.
 - Browser preview URL is provided.
-- Skill invocation logs are written with `running` and `success` or an explicit terminal state.
+- Product delivery remains complete even when invocation monitoring is unavailable.
 
-## Logging
+## Observability
 
-Write logs for meaningful stages:
-
-- `product_framing_checkpoint`
-- `generate_prd_interaction_spec`
-- `ui_style_checkpoint`
-- `page_ui_effect_checkpoint`
-- `design_system_create`
-- `html_prototype_build`
-- `html_skeleton_placeholder`
-- `html_asset_slot_annotation`
-- `asset_spec_create`
-- `asset_generation`
-- `developer_handoff`
-
-Use `running` when the stage starts and a terminal state when it ends. Do not leave stale running records without a later completion or failure entry.
+Let the Codex host, plugin, or external observer record skill invocations. Do not add manual telemetry writes to product stages. Delivery must remain correct when monitoring is unavailable.
