@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Design Master"
+  short_description: "Master UI direction and rules"
+  default_prompt: "Use $ui-design-master to define UI direction, Design.md, component rules, layout tokens, and page visual contracts."

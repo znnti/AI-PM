@@ -1,13 +1,13 @@
 ---
 name: dev-handoff
-description: Prepare final developer handoff for a concrete project. Use when Codex needs Docs-Handoff.md, implementation notes, canonical file maps, Vibo coding prompts, production limitations, QA priorities, or final package audit before developers implement from PRD, interaction spec, Design.md, Asset-Spec.md, and HTML prototype files. Do not use when maintaining skills themselves or when the task is only PRD, design, HTML, or asset editing.
+description: Prepare final developer handoff for a concrete project. Use when Codex needs Docs-Handoff.md, implementation notes, canonical file maps, Vibo coding prompts, production limitations, QA priorities, or final package audit before developers implement from PRD, interaction spec, Design.md, Asset-Spec.md, and HTML prototype files. Do not use when maintaining skills themselves or when the task is only product building, interaction design, UI design, HTML skeleton work, or visual asset rendering.
 ---
 
 # Dev Handoff
 
 ## Introduction
 
-This skill prepares a concrete project for implementation. It gathers the stable product artifacts into one developer-facing entry point and checks that the package is ready to hand off.
+This skill prepares a concrete product project for implementation. It gathers stable artifacts into one developer-facing entry point and checks that the package is ready to hand off.
 
 ## Scope
 
@@ -28,4 +28,4 @@ Run `scripts/audit_delivery.py <project-root>` before final handoff when filesys
 
 ## Completion
 
-Summarize handoff readiness, canonical files, audit result, limitations, and implementation priorities. This is normally the final stage, so do not recommend another product-delivery skill unless a missing upstream artifact needs repair.
+Summarize handoff readiness, canonical files, audit result, limitations, and implementation priorities. This is normally the final stage, so do not recommend another delivery skill unless a missing upstream artifact needs repair.

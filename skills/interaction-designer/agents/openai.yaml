@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interaction Designer"
+  short_description: "Design flows and screen states"
+  default_prompt: "Use $interaction-designer to design flows, screen states, edge cases, and interaction behavior."

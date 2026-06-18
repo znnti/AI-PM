@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Builder"
+  short_description: "Build product scope and PRDs"
+  default_prompt: "Use $product-builder to shape my idea into product scope, PRD, assumptions, and acceptance criteria."

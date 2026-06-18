@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visual Asset Rendering Master"
+  short_description: "Master visual asset rendering"
+  default_prompt: "Use $visual-asset-rendering-master to plan and render visual asset slots, placeholder rules, and replacement prompts."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "HTML Skeleton Worker"
+  short_description: "Build HTML skeleton screens"
+  default_prompt: "Use $html-skeleton-worker to build or repair one product HTML skeleton, screen, route, or prototype scope."

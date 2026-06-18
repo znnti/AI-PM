@@ -1,4 +1,4 @@
 interface:
   display_name: "Delivery Router"
-  short_description: "Route product delivery work"
-  default_prompt: "Use $delivery-router to route my product request to the correct focused delivery skill."
+  short_description: "Route staged delivery work"
+  default_prompt: "Use $delivery-router to route my product request to the correct role-based delivery skill."
