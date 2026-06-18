@@ -1,4 +1,0 @@
-interface:
-  display_name: "Product UI Concept"
-  short_description: "Explore product UI directions"
-  default_prompt: "Use $product-ui-concept to create UI style directions, visual references, or image-generation prompts for this product."

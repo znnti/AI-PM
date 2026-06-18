@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Contract"
+  short_description: "Define design contract rules"
+  default_prompt: "Use $design-contract to create or repair Design.md, component rules, layout tokens, and screen-specific visual contracts."

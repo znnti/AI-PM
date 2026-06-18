@@ -1,4 +1,0 @@
-interface:
-  display_name: "Product Delivery Router"
-  short_description: "Route product work to focused skills"
-  default_prompt: "Use $product-requirements-prototyper to route my product request to the correct focused product skill."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dev Handoff"
+  short_description: "Prepare developer handoff"
+  default_prompt: "Use $dev-handoff to prepare a concrete project for developer or Vibo coding handoff."

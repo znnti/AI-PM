@@ -1,4 +1,0 @@
-interface:
-  display_name: "Product HTML Prototype"
-  short_description: "Build or repair product HTML"
-  default_prompt: "Use $product-html-prototype to build or repair one product HTML screen, route, or prototype scope."

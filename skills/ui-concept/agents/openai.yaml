@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Concept"
+  short_description: "Explore UI visual direction"
+  default_prompt: "Use $ui-concept to create UI style directions, visual references, or image-generation prompts for this product."

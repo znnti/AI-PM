@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interaction Spec"
+  short_description: "Define flows and screen states"
+  default_prompt: "Use $interaction-spec to define flows, screen states, edge cases, and interaction behavior for this product."
