@@ -1,6 +1,8 @@
 ---
 name: product-requirements-prototyper
 description: Turn product ideas, feature requests, rough requirements, or existing product artifacts into scoped product deliverables. Use when Codex needs to create or repair PRDs, interaction specs, user flows, information architecture, UI concept directions, image-generation prompts, multi-device HTML prototypes for phone, pad, TV, or web, Design.md and Asset-Spec.md contracts, screen-local product UI, or developer handoff materials for Vibo coding and implementation teams.
+metadata:
+  version: 0.2.0
 ---
 
 # Product Requirements Prototyper
@@ -185,6 +187,14 @@ For high-fidelity product UI work, do not treat Stage 4 HTML, Stage 5 `Design.md
 - `Asset-Spec.md` defines slot-by-slot asset contracts.
 - HTML implements both and must be checked against both.
 
+Before creating a new page or editing high-fidelity HTML, run a **Design Contract Preflight**:
+
+- Confirm `Design.md` has global tokens, component standards, screen-specific rules, a page exception mechanism, and a QA checklist for the in-scope screen or module.
+- Confirm page rules inherit global tokens and component contracts first. A new page must start from `Design.md`, not from a screenshot or one-off CSS guesses.
+- If the user gives an explicit special requirement for one page, module, or state, implement that requirement locally and record it as a screen rule or page exception. Do not promote it into a global token or component standard unless the user explicitly asks for a global rule such as "以后都这样" or "作为通用规范".
+- If `Design.md` is missing the needed global/component rule, update `Design.md` or the relevant contract before editing HTML. Do not encode undocumented design assumptions directly in CSS.
+- After editing HTML, audit the changed region back against `Design.md`, `Asset-Spec.md`, and any page-level contracts; remove or revise stale rules that would recreate the old state.
+
 If this loop is weak, strengthen the skill-level rules and references instead of only patching one project's markdown files.
 
 
@@ -213,6 +223,7 @@ Do not use presentation-deck structures for product prototypes. A product protot
 - For high-fidelity HTML, translate confirmed UI effects into measured layout constraints: canvas size, grid columns, block heights, typography scale, baseline alignment, spacing, border radius, and placeholder dimensions. Do not rely on "looks similar" judgment alone.
 - Create `Design.md` for each high-fidelity project after UI effects are approved and before coding or repairing HTML. Treat it as the project-level visual contract.
 - Treat `Design.md` as a required implementation contract, not an optional style memo. For high-fidelity work it must define the component system, including button variants, usage rules, sizing, spacing, icon/text equations, text-wrap policy, and state rules strongly enough that HTML can be audited against it.
+- Maintain `Design.md` with a clear hierarchy: global tokens and component contracts first, page/screen rules second, asset slot rules third. Page-specific user requests are local exceptions by default; they must not rewrite global standards unless explicitly promoted by the user.
 - Keep `Design.md` and HTML in sync. If HTML changes reveal a better layout rule, update `Design.md`; if `Design.md` changes, update the HTML.
 - Use green dashed placeholders for unfinished image/icon slots during layout validation. Keep icon, cover, illustration, avatar, and play-button slots empty until the layout skeleton is approved.
 - Treat `Asset-Spec.md` as a slot contract, not only an asset list. It must bind each visible slot to component/region, size, format, crop/anchor, overflow, state usage, and replacement constraints so later asset work cannot silently change layout.

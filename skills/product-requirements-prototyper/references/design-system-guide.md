@@ -437,15 +437,37 @@ For a multi-screen product, structure `Design.md` like this:
 
 ```text
 Design.md
+├── Purpose and Contract Hierarchy
 ├── Global Visual Direction
 ├── Global Tokens
 ├── Component System
+├── Page Exception Table
 ├── Screen Rules
 │   ├── Screen A
 │   ├── Screen B
 │   └── Screen C
 └── QA Checklist
 ```
+
+## Contract Hierarchy and Page Exceptions
+
+A high-fidelity `Design.md` must make rule priority explicit. Use this hierarchy:
+
+1. **Global tokens**: canvas, safe margins, navigation geometry, spacing scale, typography scale, color, radius, shadows.
+2. **Component standards**: button families, cards, rows, tabs, modals, navigation controls, icon slots, avatars, states.
+3. **Screen rules**: one screen's information structure, grid, module sizes, and screen-specific constraints.
+4. **Asset slot rules**: image/icon file, crop, format, visual weight, and replacement constraints.
+
+New pages must inherit global tokens and component standards before adding screen rules. Do not start a new high-fidelity page from ad hoc CSS, a screenshot impression, or a local module preference.
+
+If the user gives an explicit special requirement for a page, module, or state, treat it as a local exception by default:
+
+- Apply it only to the named page/module/state.
+- Record it in a Page Exception Table or the relevant Screen Rules section.
+- Include scope, reason/source, affected components, and acceptance checks.
+- Do not promote it into a global token or component standard unless the user explicitly asks for global promotion.
+
+Page exceptions are allowed; silent global drift is not.
 
 ## Should Design.md Be Rewritten Multiple Times?
 
@@ -517,10 +539,11 @@ Include these sections unless the project clearly does not need one:
 13. **Asset Placeholder Rules**: green dashed placeholder usage, asset ID display, dimension stability.
 14. **State Rules**: active, selected, locked, disabled, playing/current, success/error.
 15. **Screen-Specific Rules**: important screen layouts and per-screen visual constraints.
-16. **Difference Log**: reference vs current HTML mismatch table.
-17. **Change Request Log**: accepted user changes, layout compensation, stale-rule cleanup, and verification.
-18. **Alignment QA Checklist**: edge alignment, baseline alignment, overflow, repeated component consistency.
-19. **Two-Way Update Rule**: update `Design.md` when HTML changes reveal a better rule, and update HTML when `Design.md` changes.
+16. **Page Exception Table**: local exceptions, scope, reason/source, affected components, acceptance checks, and whether the user explicitly promoted them to global.
+17. **Difference Log**: reference vs current HTML mismatch table.
+18. **Change Request Log**: accepted user changes, layout compensation, stale-rule cleanup, and verification.
+19. **Alignment QA Checklist**: edge alignment, baseline alignment, overflow, repeated component consistency.
+20. **Two-Way Update Rule**: update `Design.md` when HTML changes reveal a better rule, and update HTML when `Design.md` changes.
 
 ## Completion Threshold
 
@@ -532,6 +555,8 @@ Do not claim that `Design.md` is complete for a high-fidelity screen unless all 
 - button families are explicitly defined
 - asset placeholders and slot rules are referenced
 - relevant states are defined
+- global tokens and screen-specific rules are separated
+- local page exceptions are recorded and have not silently changed global rules
 - the HTML can be checked against a concrete checklist instead of visual intuition alone
 
 ## High-Fidelity Rules
