@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Design Contract"
+  short_description: "Define product design contracts"
+  default_prompt: "Use $product-design-contract to create or repair Design.md, component rules, layout tokens, and screen-specific visual contracts."

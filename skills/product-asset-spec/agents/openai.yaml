@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Asset Spec"
+  short_description: "Plan product asset slot rules"
+  default_prompt: "Use $product-asset-spec to inventory product asset slots, placeholder rules, and replacement prompts for one screen or asset scope."

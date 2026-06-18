@@ -607,7 +607,7 @@ product-name/
 ├── UI-Style-Checkpoint.md
 ├── Design.md
 ├── Asset-Spec.md
-├── Vibo-Coding-Handoff.md
+├── Docs-Handoff.md
 └── prototype/
     └── index.html
 ```

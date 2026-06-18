@@ -1,4 +1,4 @@
 interface:
-  display_name: "Product Requirements Prototyper"
-  short_description: "Create and repair product delivery artifacts"
-  default_prompt: "Use $product-requirements-prototyper to classify my request as full delivery, one stage, or screen-local refinement, then produce only the requested scope."
+  display_name: "Product Delivery Router"
+  short_description: "Route product work to focused skills"
+  default_prompt: "Use $product-requirements-prototyper to route my product request to the correct focused product skill."

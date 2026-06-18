@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product PRD Writer"
+  short_description: "Write and repair product PRDs"
+  default_prompt: "Use $product-prd-writer to turn my product idea or notes into a scoped PRD with assumptions, acceptance criteria, and open questions."

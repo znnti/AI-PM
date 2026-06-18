@@ -13,7 +13,7 @@ from urllib.parse import unquote, urlparse
 
 ARCHIVE_PARTS = {"archive", "archived", ".archive"}
 CANONICAL_DOCS = ("PRD.md", "Interaction-Spec.md", "Design.md", "Asset-Spec.md")
-HANDOFF_NAMES = ("Docs-Handoff.md", "Vibo-Coding-Handoff.md")
+HANDOFF_NAMES = ("Docs-Handoff.md",)
 
 
 def is_archived(path: Path) -> bool:
